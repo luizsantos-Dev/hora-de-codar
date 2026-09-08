@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+         var numeracao = 1
+         var contagem = 0
+         var soma = 0
+         while (contagem < 6){
+            var num = Number(prompt(`Digite o ${numeracao} número: `))   
+            if(Number(num)){ 
+            if (num < 72){
+                soma = num + soma
+                contagem++ 
+                numeracao++
+            }else{
+                contagem++
+                numeracao++
+            }
+        }else{
+           var num = Number(prompt(`Digite o ${numeracao} número: `)) 
+           soma = num + soma
+           contador ++
+           numeracao++
+        }
+    }
+           document.writeln(`A soma dos números da ${soma}.`)
+    </script>
+</body>
+</html>

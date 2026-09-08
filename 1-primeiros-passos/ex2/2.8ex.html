@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>    
+    var contador = 1 
+        var soma = 0
+    while(contador <= 4){
+        let num = Number(prompt(`Digite o ${contador} número: `))
+        if(Number(num) ){
+        if(num > 0 && num < 10){
+            soma = soma + num
+            contador ++
+        }else{
+            contador ++
+        }
+    }else{
+        let num = Number(prompt(`Número incorreto digite o ${contador} número: `))
+        soma = soma + num
+        contador ++
+    }
+}
+    var media = soma / 4
+
+     if (media > 5 ){
+            document.write(`Sua média foi ${media}, por isso você passou no teste. Parabens!`)
+        }else {
+            document.write(`Sua média foi ${media}, por isso você não passou no teste. Tente na proxima vez`)
+        }
+    
+
+
+    </script>
+</body>
+</html>
