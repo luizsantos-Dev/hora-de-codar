@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Resultado"></div>
+
+    <script>
+        let crono = 0
+        let num = Number(prompt(`Quantos segundos você quer(em segundos): `))
+        if (!isNaN(num) && num >= 0 && Number(num)) {
+
+
+            function Explosao() {
+                if (num >= crono) {
+                    document.getElementById("Resultado").innerHTML +=`<p>A bomba irá explodir em: ${num} segundos.</p>`;
+                    num--
+                } else {
+                    clearInterval(timer)
+                    alert(`💥 EXPLODIU!`)
+                }
+            }
+        } else {
+            alert(`Valor invalido, tente da proxima vez`)
+        }
+        let timer = setInterval(Explosao, 1000);
+    </script>
+</body>
+
+</html>
