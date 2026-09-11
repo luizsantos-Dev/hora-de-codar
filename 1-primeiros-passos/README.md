@@ -83,7 +83,7 @@ Nesta etapa, você vai repetir tarefas de forma inteligente com `for` e `while`.
 
 3.3. Calcule e exiba a média aritmética dos números inteiros de 15 a 100 (inclusive).
 
-3.4. Leia dois inteiros (sendo o primeiro menor que o segundo) e calcule a média desses números e de todos os inteiros entre eles.
+
 
 3.5. Leia 2 notas de um aluno, calcule a média final e considere aprovação com nota 9,5. Em seguida, pergunte: `Calcular a média de outro aluno? (S/N)`. Se a resposta for `S`, repita; caso contrário, encerre e mostre a quantidade de alunos aprovados.
 

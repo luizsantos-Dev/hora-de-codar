@@ -11,12 +11,12 @@
 
         var n1 = Number(prompt(`Digite o primeiro número: `))
         var n2 = Number(prompt(`Digite o segundo número: `))
-        for (var n2 = 0; n2 <= 0;) {
-            var n2 = Number(prompt(`Digite o segundo número novamente: `))
+        while(n2 <= 0) {
+            var n2 = Number(prompt(`Digite o segundo número novamente(maior que 0): `))
             
         }
-        var resultado = n1 + n2
-        console.log(`Seu resultado foi ${resultado}`)
+        var resultado = n1 / n2
+        document.write(`Essa foi a divisão de ${n1} e ${n2}: ${resultado}`)
     </script>
 </body>
 </html>

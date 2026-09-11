@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var n1 = Number(prompt(`Digite a nota da P1:`));
+    var n2 = Number(prompt(`Digite a nota da P2:`));
+    var nota = n1 + n2;
+    var media = nota / 2;
+
+    if (media >= 9.5){
+        alert(`Parabéns! Você passou de ano!`);
+    } else {
+        alert(`Você não passou de ano infelizmente... tente no próximo semestre.`);
+    }
+
+    var perg = prompt(`Deseja calcular a média de outro aluno? (S/N)`).trim() .toUpperCase();
+
+    while (perg === 'S') {
+
+        n1 = Number(prompt(`Digite a nota da P1:`));
+        n2 = Number(prompt(`Digite a nota da P2:`));
+
+        nota = n1 + n2;
+        media = nota / 2;
+
+        if (media >= 9.5){
+            alert(`Parabéns! Você passou de ano!`);
+        } else {
+            alert(`Você não passou de ano infelizmente... tente no próximo semestre.`);
+        }
+
+        perg = prompt(`Deseja calcular a média de outro aluno? (S/N)`).trim () .toUpperCase();
+    }
+
+    alert(`Obrigado pela atenção.`);
+</script>
+</body>
+</html>
