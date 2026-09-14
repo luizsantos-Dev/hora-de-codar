@@ -14,7 +14,7 @@
 		/*  Função principal. */
 		function inicio() {
 
-			var escolha = parseInt(prompt('Selecione uma opção 1.) Saldo 2.) Depósito 3.) Saque 4.) Sair'));
+			var escolha = parseInt(prompt('Selecione uma opção \n1.) Saldo\n 2.) Depósito\n 3.) Saque\n 4.) Extrato \n5.) Sair'));
 
 			// if (escolha === 1) {
 			// 	ver_saldo();
@@ -42,17 +42,25 @@
 				break;
 
 				case 4: 
+					ver_extrato();
+				break;
+				case 5: 
 					sair();
 				break;
 				default:
-					while(escolha > 4){
-					escolha = parseInt(prompt('Comando invalido!\nSelecione uma opção 1.) Saldo 2.) Depósito 3.) Saque 4.) Sair'));
+					while(escolha > 5){
+					escolha = parseInt(prompt('Selecione uma opção \n1.) Saldo\n 2.) Depósito\n 3.) Saque\n 4.) Extrato \n5.) Sair'));
 					}
 				break;
 			};
 
 			
 		}
+
+		function ver_extrato(){
+			alert(`20/08 = -100\n23/08 = -600\n04/09 = -300\n13/09 = 1400`)
+			inicio();
+		};
 
 		/*  Função principal. */
 		function ver_saldo() {
@@ -80,23 +88,25 @@
 				alert('Por favor, informe um número:');
 				fazer_saque();
 			} else{
-				if(saldo >= saque){
-					saldo -= saque;
-					ver_saldo();
-				}else if(saque <= 0){
-					alert(`Saque negativo`)
-					fazer_saque()
+				if(saque <= 0){
+					alert(`Saque negativo`);
+					fazer_saque();
 				}else{
-					alert(`Saldo insuficiente`)
-					fazer_saque()
-				}
-			}
-		}
+					if(saldo < saque){
+						alert(`Saldo insuficiente`);
+						fazer_saque();
+					}else{
+						saldo -= saque;
+						ver_saldo();
+					};
+				};
+			};
+		};
 		
 
 		/* Verificar se há um erro */
 		function erro() {
-			alert('Por favor, informe um número entre 1 e 4');
+			alert('Por favor, informe um número entre 1 a 4');
 			inicio();
 		}
 
