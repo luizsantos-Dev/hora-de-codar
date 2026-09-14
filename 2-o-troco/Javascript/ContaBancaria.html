@@ -4,26 +4,54 @@
 
 	<script>
 
+		var nome = prompt(`Qual seu nome : `)
+
 	    // Aqui criamos uma variavel global. Global significa que o elemento pode ser acessado por qualquer método. Para tornar global, utilizamos a palavra static.
     
 		var saldo = 100.5; // Float (Número com ponto flutuante)
 
+		alert(`Olá ${nome}, é um prazer ter você aqui! `)
 		/*  Função principal. */
 		function inicio() {
 
 			var escolha = parseInt(prompt('Selecione uma opção 1.) Saldo 2.) Depósito 3.) Saque 4.) Sair'));
 
-			if (escolha === 1) {
-				ver_saldo();
-			} else if (escolha === 2) {
-				fazer_deposito();
-			} else if (escolha === 3) {
-				fazer_saque();
-			} else if (escolha === 4) {
-				sair();
-			} else {
-				erro();
-			}
+			// if (escolha === 1) {
+			// 	ver_saldo();
+			// } else if (escolha === 2) {
+			// 	fazer_deposito();
+			// } else if (escolha === 3) {
+			// 	fazer_saque();
+			// } else if (escolha === 4) {
+			// 	sair();
+			// } else {
+			// 	erro();
+			// }
+
+			switch (escolha) {
+				case 1:
+					ver_saldo();
+				break;
+				
+				case 2:
+					fazer_deposito();
+				break;
+
+				case 3:
+					fazer_saque();
+				break;
+
+				case 4: 
+					sair();
+				break;
+				default:
+					while(escolha > 4){
+					escolha = parseInt(prompt('Comando invalido!\nSelecione uma opção 1.) Saldo 2.) Depósito 3.) Saque 4.) Sair'));
+					}
+				break;
+			};
+
+			
 		}
 
 		/*  Função principal. */
@@ -51,11 +79,20 @@
 			if (isNaN(saque) || saque === '') {
 				alert('Por favor, informe um número:');
 				fazer_saque();
-			} else {
-				saldo -= saque;
-				ver_saldo();
+			} else{
+				if(saldo >= saque){
+					saldo -= saque;
+					ver_saldo();
+				}else if(saque <= 0){
+					alert(`Saque negativo`)
+					fazer_saque()
+				}else{
+					alert(`Saldo insuficiente`)
+					fazer_saque()
+				}
 			}
 		}
+		
 
 		/* Verificar se há um erro */
 		function erro() {
