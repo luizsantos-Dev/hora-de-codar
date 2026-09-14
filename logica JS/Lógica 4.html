@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação 4</title>
+    <script>
+
+        // Funções são blocos de código que podem ser chamados e executados em qualquer parte do programa.
+        // Funções são úteis para evitar a repetição de código e para organizar o programa em partes menores e mais fáceis de entender.
+
+        // Exemplos de funções
+        function saudacao() {
+            alert("Olá, tudo bem?");
+        }
+
+        saudacao();
+   
+        /////////////////////////////////////////////
+        // Funcões com parâmetros
+        function saudacao_com_nome(nome) {
+            alert("Olá, " + nome + ", tudo bem?");
+        }
+
+        saudacao_com_nome("Thiago");
+
+        /////////////////////////////////////////////
+        // Funções com retorno
+        // Retornos são valores que a função devolve para quem a chamou. 
+        // O retorno é feito com a palavra reservada return.
+
+        function soma(a, b) {
+            return a + b;
+        }
+
+        function subtracao(a, b) {
+            return a - b;
+        }
+
+        var resultado_soma = soma(10, 5);
+        var resultado_subtracao = subtracao(10, 5);
+
+        // Exemplo de função para um sistema de login
+        var email = prompt("Informe o seu e-mail, please: ");
+        var senha = prompt("Informe a sua senha, please: ");
+       
+        function login(email, senha) {
+            if (email == "a@b.com" && senha == "123") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (login(email, senha)) {
+            alert("Login efetuado com sucesso!");
+        } else {
+            alert("E-mail ou senha inválidos!");
+        }
+
+        // Explicando a função isNaN(); 
+        // isNaN() é uma função que verifica se o valor passado é um número ou não.
+        // Se o valor for um número, a função retorna false.
+
+        //Exemplo
+        var numero = 10;
+        console.log(isNaN(numero)); //false
+
+        var texto = "Olá";
+        console.log(isNaN(texto)); //true
+
+        // Exemplo de caracteres que não são números
+        // 1. Espaço em branco (espaço, tab, quebra de linha)
+        // 2. Letras (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z)
+        // 3. Símbolos (%, $, #, @, !, &, *, (, ), [, ], {, }, /, \, |, <, >, =, +, -, _, `, ~, ^, ', ", :, ;, ,, .)
+        // 4. Nada 
+        // 5. Undefined (undefined)
+
+        // Exemplo de caracteres que são números
+        // 1. Números (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+        // Exemplo de uso da função isNaN()
+        var numero = prompt("Informe um número: ");
+        if (isNaN(numero)) {
+            alert("O valor informado não é um número!");
+        } else {
+            alert("O valor informado é um número!");
+        }
+
+        // Exemplo de função para verificar se um número é par
+        function par_ou_impar(numero) {
+            if (numero % 2 == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+    </script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:xd_Signature msdt:dt="string"></mso:xd_Signature>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">SharePoint App</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">3600.00000000000</mso:Order>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">SharePoint App</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:xd_ProgID msdt:dt="string"></mso:xd_ProgID>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:TemplateUrl msdt:dt="string"></mso:TemplateUrl>
+<mso:ContentTypeId msdt:dt="string">0x010100F4B62C55C862E64E9E25FC0A39DBE0E2</mso:ContentTypeId>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação 2</title>
+    <script> 
+        
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
+
+        // Desvios Condicionais são estruturas de controle que permitem que um bloco de código seja executado somente se uma condição for verdadeira.
+
+        var a = 15;
+        var b = 5;
+        var c = 10;
+        
+        // Exemplos de condicionais
+        if (a > b) { // If -> Se...
+            //alert("A é maior que B");
+        } else if (a < b) { // Else if -> Senão se...
+            //alert("A é menor que B");
+        } else { // Else -> Senão...
+            //alert("A é igual a B");
+        }
+
+        // Duas (ou mais) condições podem ser combinadas
+        if (a > b && a > c) {
+            //alert("A é maior que B e C");
+        }
+
+        // Uma condição ou outra pode ser usada
+        if (a > b || a > c) {
+            //alert("A é maior que B ou C");
+        }
+
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
+
+        // Exemplos de comparações de estrita e não estrita
+        var x = 15; // Number
+        var y = "15"; // String
+
+        x == y; // Igualdade -> true
+        x === y; // Igualdade estrita -> false
+
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////
+
+        // Um programa que simples de login
+        var nome = prompt("Informe o seu nome, please: ");
+        var senha = prompt("Informe a sua senha, please: ");
+        
+       if (nome == "Thiago" && senha == "123") {
+            alert("Bem-vindo, Thiago!");
+        } else {
+            alert("Usuário ou senha inválidos!");
+        }
+
+        // Switch case em Javascript
+        // O switch case é uma estrutura de controle que permite a seleção de um bloco de código a ser executado a partir de uma condição.
+        
+        var dia = parseInt(prompt("Qual é o dia? (0-6)"));
+        // dia = parseInt(dia);
+        // "2" -> 2
+        console.log(dia);
+
+        // Switch -> Escolha | Case -> caso
+        switch (dia) {
+            case 0:
+                alert("Domingo");
+                break;
+            case 1:
+                alert("Segunda");
+                break;
+            case 2:
+                alert("Terça");
+                break;
+            case 3:
+                alert("Quarta");
+                break;
+            case 4:
+                alert("Quinta");
+                break;
+            case 5:
+                alert("Sexta");
+                break;
+            case 6:
+                alert("Sábado");
+                break;
+            default:
+                alert("Não é um dia");
+        } 
+
+    </script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:xd_Signature msdt:dt="string"></mso:xd_Signature>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">SharePoint App</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">4000.00000000000</mso:Order>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">SharePoint App</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:xd_ProgID msdt:dt="string"></mso:xd_ProgID>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:TemplateUrl msdt:dt="string"></mso:TemplateUrl>
+<mso:ContentTypeId msdt:dt="string">0x010100F4B62C55C862E64E9E25FC0A39DBE0E2</mso:ContentTypeId>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    
+    
+
+</body>
+</html>

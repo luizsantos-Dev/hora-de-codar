@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação 6</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:xd_Signature msdt:dt="string"></mso:xd_Signature>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">SharePoint App</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">3900.00000000000</mso:Order>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">SharePoint App</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:xd_ProgID msdt:dt="string"></mso:xd_ProgID>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:TemplateUrl msdt:dt="string"></mso:TemplateUrl>
+<mso:ContentTypeId msdt:dt="string">0x010100F4B62C55C862E64E9E25FC0A39DBE0E2</mso:ContentTypeId>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <script>
+        //Objetos são estruturas de dados que permitem armazenar vários valores em uma única variável.
+
+        //Exemplos de objetos
+        var pessoa = {
+            nome: "Thiago",
+            idade: 17,
+            altura: 1.70,
+            casado: false,
+            endereco: {
+                rua: "Rua das Flores",
+                numero: 123,
+                bairro: "Centro"
+            }
+        };
+
+        //Acessando propriedades de um objeto
+        console.log(pessoa.nome); //Thiago
+        console.log(pessoa.idade); //17
+        console.log(pessoa.altura); //1.70
+        console.log(pessoa.casado); //false
+        console.log(pessoa.endereco.rua); //Rua das Flores
+        console.log(pessoa.endereco.numero); //123
+        console.log(pessoa.endereco.bairro); //Centro
+
+        //Alterando propriedades de um objeto
+        pessoa.nome = "Thiago Alves Monteiro Nascimento";
+        console.log(pessoa.nome); //Thiago Alves Monteiro Nascimento
+
+        //Adicionando propriedades a um objeto
+        pessoa.peso = 70;
+        console.log(pessoa.peso); //70
+
+        //Removendo propriedades de um objeto
+        delete pessoa.peso;
+        console.log(pessoa.peso); //undefined
+
+        //Arrays de objetos
+        var pessoas = [
+            {
+                nome: "Thiago",
+                idade: 17,
+                altura: 1.70,
+                casado: false,
+                endereco: {
+                    rua: "Rua das Flores",
+                    numero: 123,
+                    bairro: "Centro"
+                }
+            },
+            {
+                nome: "Maria",
+                idade: 25,
+                altura: 1.65,
+                casado: true,
+                endereco: {
+                    rua: "Rua das Palmeiras",
+                    numero: 456,
+                    bairro: "Jardim"
+                }
+            },
+            {
+                nome: "João",
+                idade: 30,
+                altura: 1.80,
+                casado: true,
+                endereco: {
+                    rua: "Rua das Orquídeas",
+                    numero: 789,
+                    bairro: "Floresta"
+                }
+            }
+        ];
+
+        console.log(pessoas[0].nome); //Thiago
+        console.log(pessoas[1].nome); //Maria
+        console.log(pessoas[2].nome); //João 
+
+    </script>
+    
+</body>
+</html>
