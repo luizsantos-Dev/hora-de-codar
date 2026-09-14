@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var calcular = Number(0)
+        var media = Number(0)
+            for (let i = 1; i <= 6; i++) {
+
+                let nota = Number(prompt(`Digite a ${i}º nota: `))
+                if(nota <= 10 && nota >= 1){
+                calcular = nota + calcular
+                }else{
+                let nota = Number(prompt(`Digite a ${i}º nota novamente (entre 1 e 10): `))
+                calcular = nota + calcular
+                }
+            }
+            media = calcular / 6
+            media = media.toFixed(2)
+
+            if(media > 6){
+            document.write(`Sua média final foi ${media}. Parabéns você passou de ano!`)
+            }else{
+            document.write(`Sua média final foi ${media}. Infelizmente você não passou de ano.`)
+            }
+    </script>
+</body>
+</html>

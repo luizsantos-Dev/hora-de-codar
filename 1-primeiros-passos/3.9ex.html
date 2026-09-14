@@ -1,0 +1,207 @@
+<!--
+
+                            --Meu código--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        :root{
+            --margin-padrao : 10px;
+            --cor-correto : rgb(4, 177, 4);
+            --cor-incorreta: rgb(255, 0, 0);
+            --cor-texto: white;
+            --padding-padrao: 20px;
+            --width-padrao: 50vh;
+            --arrendodamento : 10px 15px 10px 15px;
+        }
+        .correto{
+            border-radius: var(--arrendodamento);
+            padding: var(--padding-padrao);
+            width: var(--width-padrao);
+            background:var(--cor-correto) ;
+            color: var(--cor-texto);
+            font-family: Arial, Helvetica, sans-serif;
+            margin: var(--margin-padrao);
+            
+        }
+        .incorreto{
+            border-radius: var(--arrendodamento);
+            padding: var(--padding-padrao);
+            width: var(--width-padrao);
+            background: var(--cor-incorreta);
+            color: var(--cor-texto);
+            font-family: Arial, Helvetica, sans-serif;
+            margin: var(--margin-padrao);
+        }
+        .indice{
+            border-radius: var(--arrendodamento);
+            border: 2px solid white;
+            padding: var(--padding-padrao);
+            width: var(--width-padrao);
+            background: var(--cor-incorreta);
+            color: var(--cor-texto);
+            font-family: Arial, Helvetica, sans-serif;
+            margin: var(--margin-padrao);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <script>
+        var dadosin = 0
+        var inv = 0
+        var numcor = 0
+        var numinc = 0
+    
+        for (let i = 1; i <= 10; i++) {
+            let num = Number(prompt(`Digite o ${i}º número: `))
+            if(num >= 24 && num <= 42){
+                numcor++
+                document.write(`<br><div class="correto">O número ${i}º é valido por ter o valor ${num}.</div><br>`)
+            }else{
+                dadosin = num
+                inv = i 
+                numinc++
+                document.write(`<br><div class="incorreto">O número ${inv}º não é valido por ter o valor ${dadosin}.</div><br>`)
+            }
+            
+            
+        }
+            document.write(`<br><br><div class="indice">Sendo assim teve um total de ${numcor} números corretos.</div><br>`)
+            document.write(`<br><br><div class="indice"> E teve um total de ${numinc} números incorretos.</div><br>`)
+    
+            
+
+            var ind = window.document.getElementsByClassName("indice")
+
+            ind.addEventListener('mouseover', Passar)
+             
+            function Passar(){
+            
+            }
+    </script>
+</body>
+</html>
+-->
+
+
+<!--                     Código da IA                      -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        :root{
+            --margin-padrao : 10px;
+            --cor-correto : rgb(4, 177, 4);
+            --cor-incorreta: rgb(255, 0, 0);
+            --cor-texto: white;
+            --padding-padrao: 20px;
+            --width-padrao: 50vh;
+            --arrendodamento : 10px 15px 10px 15px;
+        }
+
+        .correto, .incorreto, .indice{
+            border-radius: var(--arrendodamento);
+            padding: var(--padding-padrao);
+            width: var(--width-padrao);
+            margin: var(--margin-padrao);
+            color: var(--cor-texto);
+        }
+
+        .correto{
+            background: var(--cor-correto);
+        }
+
+        .incorreto{
+            background: var(--cor-incorreta);
+        }
+
+        .indice{
+            border: 2px solid white;
+            background: blue;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+
+    let numcor = 0;
+    let numinc = 0;
+
+    // Container para receber tudo
+    const container = document.createElement("div");
+    document.body.appendChild(container);
+
+    // Loop dos números
+    for (let i = 1; i <= 10; i++) {
+
+        let num = Number(prompt(`Digite o ${i}º número:`));
+        let bloco = document.createElement("div");
+
+        if (num >= 24 && num <= 42) {
+            numcor++;
+            bloco.className = "correto";
+            bloco.textContent = `O número ${i}º é válido por ter o valor ${num}.`;
+        } else {
+            numinc++;
+            bloco.className = "incorreto";
+            bloco.textContent = `O número ${i}º não é válido por ter o valor ${num}.`;
+        }
+
+        container.appendChild(bloco);
+    }
+
+    // Criar blocos finais
+    const indice1 = document.createElement("div");
+    indice1.className = "indice";
+    indice1.textContent = `Total de números corretos: ${numcor}`;
+
+    const indice2 = document.createElement("div");
+    indice2.className = "indice";
+    indice2.textContent = `Total de números incorretos: ${numinc}`;
+
+    container.appendChild(indice1);
+    container.appendChild(indice2);
+
+    // Eventos de hover
+    const indices = document.getElementsByClassName("indice");
+
+    for (let item of indices) {
+        item.addEventListener("mouseover", () => {
+            item.style.background = "var(--cor-correta)";
+            item.style.transform = "translatey(-5px)";
+            item.style.padding = "25px";
+
+        });
+
+        item.addEventListener("mouseout", () => {
+            item.style.background = "blue";
+             item.style.transform = "translatey(0px)";
+            item.style.padding = "20px";
+        });
+    }
+
+</script>
+
+</body>
+</html>
