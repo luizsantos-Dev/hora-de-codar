@@ -8,11 +8,9 @@
 <body>
     
     <script>
-        dados = 0
         for (let i = 1; i <= 10; i++) {
-            let num = Number(prompt(`Digite o ${i}º número: `))
+            let num = parseInt(prompt(`Digite o ${i}º número: `))
             if(num > 100){
-                dados = num 
                 document.write(`O número ${i}º é valido por ter o valor ${num}.<br>`)
             }
             
