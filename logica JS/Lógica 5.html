@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programação 5</title>
+    <script>
+
+        // Arrays (ou Vetores) em JavaScript
+        // Arrays são estruturas de dados que permitem armazenar vários valores em uma única variável.
+        // Arrays são úteis para armazenar listas de valores, como nomes, números, objetos, etc.
+
+        // Exemplos de arrays
+        // Indíce:    0        1        2         3         4          5          6          7          8          9         10
+        // Ordem:     1°       2°       3°        4°        5°         6°         7°         8°         9°        10°        11°
+        var frutas = ["maçã", "banana", "laranja", "uva", "melancia", "mamão", "abacate",  "morango", "pêssego", "kiwi", "manga"];
+        var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var lista = []; // Array vazio
+        var multiplos_tipos = [1, "maçã", true, 3.14, {nome: "João", idade: 25}];
+
+        // Acessando elementos de um array
+        console.log(frutas);
+        console.table(frutas);
+
+        console.log("Primeiro item do array: " + frutas[0] ); // maçã
+        console.log("Segundo item do array: " + frutas[1]); // banana
+        console.log("Terceiro item do array: " + frutas[2]); // laranja
+
+
+        // Alterando o valor de um elemento
+        frutas[4] = "pera";
+        console.log("Resultado do Array após a alteração do quinto item: " + frutas);
+        
+        // Tamanho de um array
+        console.log("Tamanho do array: "+ frutas.length); // quantidade de itens do array
+
+        // Adicionando elementos a um array
+        frutas.push("abacaxi");
+        console.log("Resultado do Array após a adição do item abacaxi: " + frutas);
+        
+        // Removendo elementos de um array
+        frutas.pop();
+        console.log("Resultado do Array após a remoção do último item: " + frutas);
+
+        // Adicionando elementos no início de um array
+        frutas.unshift("abacaxi");
+        console.log("Resultado do Array após a adição do item abacaxi no início: " + frutas);
+
+        // Removendo elementos do início de um array
+        frutas.shift();
+        console.log("Resultado do Array após a remoção do primeiro item: " + frutas);
+
+        // Encontrando a posição de um elemento
+        console.log("Posição do elemento: " + frutas.indexOf("manga"));
+        console.log("O nono elemento é o: " + frutas[8]);
+
+        // Removendo elementos de uma posição específica
+        frutas.splice(1, 1);
+        console.log("Resultado do Array após a remoção do item na posição 1: " + frutas);
+
+        // sort
+        // O método sort() ordena os elementos de um array in-place e retorna o array.
+        frutas.sort();
+        console.log("Resultado do Array após o sort: " + frutas);
+
+        // reverse
+        // O método reverse() inverte a ordem dos elementos de um array.
+        frutas.reverse();
+        console.log("Resultado do Array após o reverse: " + frutas);
+
+        // slice
+        // O método slice() retorna uma cópia de parte de um array a partir de um subarray criado entre as posições inicial e final. 
+        var frutas2 = frutas.slice(1, 3);
+        console.log("Resultado do Array após o slice: " + frutas2); 
+
+        // Verificando se um elemento existe no array
+        console.log("Existe a fruta banana no array? " + frutas.includes("abacaxi"));
+
+
+
+        // Arrays de arrays
+        var matriz = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+        console.log(matriz[1][2]); // 6
+
+        //forEach
+        // O método forEach() executa uma dada função em cada elemento de um array.
+        frutas.forEach(function(valor, indice, array){
+            console.log(indice + ": " + valor);
+        });
+
+        // Map
+        // O método map() cria um novo array com os resultados da chamada de uma função para cada elemento do array.
+        var numeros = [1, 2, 3, 4, 5];
+        var dobro = numeros.map(function(valor){
+            return valor * 2;
+        });
+        //Descrevendo:  
+        //dobro inicialmente é igual a: 1, 2, 3, 4, 5, mas passa a ser igual a 2, 4, 6, 8, 10 porque cada valor do array numeros é multiplicado por 2.
+        console.log("Novo array com o dobro dos valores: " + dobro);
+
+        // Filter
+        // O método filter() cria um novo array com todos os elementos que passaram no teste implementado pela função fornecida.
+        var numeros = [1, 2, 3, 4, 5];
+        var pares = numeros.filter(function(valor){
+            return valor % 2 == 0;
+        });
+        console.log("Novo array com os números pares: " + pares);
+
+        // Reduce
+        // O método reduce() executa uma função redutora sobre cada elemento de um array, resultando em um único valor de retorno.
+        var numeros = [1, 2, 3, 4, 5];
+        var soma = numeros.reduce(function(acumulador, valor){
+            return acumulador + valor;
+        });
+        console.log("Soma dos valores do array: " + soma);
+        
+    </script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:xd_Signature msdt:dt="string"></mso:xd_Signature>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">SharePoint App</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">3800.00000000000</mso:Order>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">SharePoint App</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:xd_ProgID msdt:dt="string"></mso:xd_ProgID>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:TemplateUrl msdt:dt="string"></mso:TemplateUrl>
+<mso:ContentTypeId msdt:dt="string">0x010100F4B62C55C862E64E9E25FC0A39DBE0E2</mso:ContentTypeId>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    
+</body>
+</html>
