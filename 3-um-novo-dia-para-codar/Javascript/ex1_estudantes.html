@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let confirmar = `SIM`
+        let student = [];
+        let registro = [];
+        let lista = ""
+
+        while(confirmar != "PARE"){
+            if(confirmar == `SIM`){
+
+        let aluno = prompt(`Digite o nome do(a) estudante:`);
+        student.push(aluno);
+
+        let ra = Number(prompt(`Digite o RA do(a) aluno(a): `));
+        registro.push(ra);
+
+        confirmar = prompt(`Deseja continuar SIM ou PARE?`).toLocaleUpperCase();
+        }else{
+            alert(`Valor digitado errado!`)
+            confirmar = prompt(`Deseja continuar SIM ou PARE?`).toLocaleUpperCase();
+        }
+            
+        } 
+
+        for(i = 0; i < student.length; i++){
+            lista += `Nome: ${student[i]} | RA ${registro[i]}\n`;
+
+        }
+
+        alert(`Quantidade de alunos: ${student.length}.\n\n${lista}`);
+
+
+    </script>
+</body>
+</html>
