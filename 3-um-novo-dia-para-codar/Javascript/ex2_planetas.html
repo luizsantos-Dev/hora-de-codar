@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        
+        let planetas = ["Mercúrio", "Vênus", "Terra", "Marte", "Júpiter", "Saturno", "Urano", "Netuno", "Plutão"];
+        
+        
+        function Verificar() {
+
+            // x = 0
+            // if (x = 0){
+            //     alert(x)
+            // } else {
+            //     alert(y)
+            // }
+            // r = x ? 0 : 4
+            // O que significa o código em cima "?"
+
+            let valor = prompt(`Qual Planeta deseja escrever: `);
+            let resultado = false
+            var buscarValor = valor ? valor.trim().toLowerCase() : " ";
+        
+
+            for (let i = 0; i < planetas.length; i++) {
+
+                buscarValor = valor ? buscarValor = valor.trim().toLocaleLowerCase() : Verificar();
+               
+                // O que significa o código em cima "?"
+                //let buscarValor;
+                // if (valor) {
+                //     buscarValor = valor.trim().toLocaleLowerCase();
+                // } else {
+                //     buscarValor = Verificar();
+                // }
+
+                if (planetas[i].toLowerCase() === buscarValor) {
+                    resultado = true;
+                    break;
+                } else if (buscarValor === "vinicius") {
+                    alert(`Oh grandioso, a maior e mais bela estrela presente nesse vasco céu...\nIlumina o meu dia mostrando a beleza da risada e amizade.`)
+                    break;
+                }else(buscarValor === "luiz") {
+                    alert(`A força em forma de homem, uma maquina de programar, a revolução foi feita atraves desse codigo.`)
+                    break;
+                }if (buscarValor === "doug") {
+                    alert(`Parceiro de caminhada, mostrando que não importa o quão doloroso o caminho seja você ira continuar ao lado.\nUm amigo raro tão raro como o nascimento de um planeta `)
+                    break;
+                }else if (buscarValor === "daniel") {
+                    alert(`Quando te conheci parecia que dias era semanas\n semanas eram meses\n meses se tornaram anos. Uma amizade que parecia como se fosse amigos desde crianças...\nObrigado pelos anos meu amigo.`)
+                    break;
+                }else if (buscarValor === "sensei") {
+                    alert(`A maior estrela do universo e mais humilde, sabe fazer mas tambem sabe auxiliar.\n Um ser de luz que ilumina o dia com seu humor e conhecimento\n ARIGATO SENSEI`)
+                    break;
+                }else if (buscarValor === "julia") {
+                    alert(`O amor da minha vida, o meu planeta, minha estrela e por fim...\n
+                    MEU UNIVERSO.`)
+                    break;
+                }
+
+            }
+
+            if (resultado) {
+                alert(`O Planeta ${buscarValor} existe.`)
+            } else {
+                alert(`O Planeta ${buscarValor} não existe.`)
+            }
+
+            var confirmar = confirm(`Vai querer continuar? `)
+            if(confirmar){
+                Verificar();
+            }else{
+                alert(`Sistema encerrado.`)
+            }
+
+        }
+
+        Verificar();
+
+    </script>
+</body>
+
+</html>
