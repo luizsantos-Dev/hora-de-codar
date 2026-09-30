@@ -1,29 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 
     <script>
-        const funcoes= ["ADICIONAR", "BUSCAR", "REMOVER", "LISTAR", "SAIR"]
-        alert(`Lista de comandos :\n${funcoes.join(".\n")}`)
-        var comando = prompt(`Digite um comando:`).trim().toUpperCase();
-        if(!isNaN(comando) || comando === ""){
-            alert("Comando invalido, tente novamente")
+        var contatos = []
+
+        Inicio();
+
+        function Inicio() {
+            const funcoes = ["ADICIONAR", "BUSCAR", "REMOVER", "LISTAR", "SAIR"]
             alert(`Lista de comandos :\n${funcoes.join(".\n")}`)
-            comando = prompt(`Digite um comando:`).trim().toUpperCase();
-        }else{
-        if(funcoes.includes(comando)){
-            window[comando]();
+            var comando = prompt(`Digite um comando:`).trim().toUpperCase();
+            if (!isNaN(comando) || comando === "") {
+                alert("Comando invalido, tente novamente")
+                alert(`Lista de comandos :\n${funcoes.join(".\n")}`)
+                comando = prompt(`Digite um comando:`).trim().toUpperCase();
+            } else {
+                if (funcoes.includes(comando)) {
+                    window[comando]();
+                }
+            }
         }
-    }
-    function ADICIONAR (){
-        
-    }
+        function ADICIONAR() {
+            const nome = prompt("Digite um nome: ").trim().toUpperCase();
+
+            if (nome === '') {
+                alert('Nome não pode estar vazio!');
+                return;
+            }
+
+            const telefone = prompt('Digite o telefone do contato:').toUpperCase().trim();
+
+            if (telefone === '') {
+                addMensagem('Telefone não pode estar vazio!', 'erro');
+                return;
+            }
+
+            contatos.push({ nome: nome.trim(), telefone: telefone })
+            // primeira letra maiúscula
+            const nomeFormatado = nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
+
+            alert(`O contato ${nomeFormatado} foi salvo com sucesso!`);
+
+            Inicio();
+        }
+        function BUSCAR() {
+            const buscarContato = prompt(`Digite o nome do contato que deseja buscar:`)
+
+            let buscado = contatos.findIndex(c => c.nome.toUpperCase() === buscarContato.toUpperCase());
+            if (buscado === -1) {
+                alert("Contato não encontrado!");
+            } else {
+                alert(`Contato encontrado:\nNome: ${contatos[buscado].nome}\nTelefone: ${contatos[buscado].telefone}`);
+            }
+            Inicio();
+        }
+        function REMOVER() {
+            const buscarContato = prompt(`Digite o nome do contato que deseja remover:`).trim().toUpperCase();
+
+            let removido = contatos.findIndex(c => c.nome.toUpperCase() === buscarContato);
+
+            if (removido === -1) {
+                alert("Contato não encontrado!");
+            } else {
+                contatos.splice(removido, 1);
+                alert("Contato excluído!");
+            }
+            Inicio(); 
+        }
+        function LISTAR() {
+            if (contatos.length === 0) {
+                alert("Nenhum contato salvo.");
+            } else {
+                const listaFormatada = contatos.map(c => `Nome: ${c.nome} - Telefone: ${c.telefone}`).join("\n");
+                alert(`Lista de contatos:\n${listaFormatada}`);
+            }
+            Inicio();
+        }
+        function SAIR() {
+            alert(`Agenda encerrada. Total de contatos: ${contatos.length}`)
+            return;
+        }
     </script>
 </body>
+
 </html>
