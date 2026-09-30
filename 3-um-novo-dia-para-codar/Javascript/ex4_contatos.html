@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        const funcoes= ["ADICIONAR", "BUSCAR", "REMOVER", "LISTAR", "SAIR"]
+        alert(`Lista de comandos :\n${funcoes.join(".\n")}`)
+        var comando = prompt(`Digite um comando:`).trim().toUpperCase();
+        if(!isNaN(comando) || comando === ""){
+            alert("Comando invalido, tente novamente")
+            alert(`Lista de comandos :\n${funcoes.join(".\n")}`)
+            comando = prompt(`Digite um comando:`).trim().toUpperCase();
+        }else{
+        if(funcoes.includes(comando)){
+            window[comando]();
+        }
+    }
+    function ADICIONAR (){
+        
+    }
+    </script>
+</body>
+</html>

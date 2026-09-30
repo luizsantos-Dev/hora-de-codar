@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var frutas = ["Banana", "Maça", "Abacate", "Mamão", "Limão", "Tangerina"]
+        var carrinho = []
+        Loja();
+
+        function Loja() {
+            alert(`Lista de frutas:\n ${frutas.join(". \n")}`)
+
+            var digitado = prompt(`Qual a fruta deseja ter:`)
+
+            Verificar(digitado);
+        }
+        function Verificar(digitado) {
+            if (!digitado) {
+                return Erro();
+            }
+            var buscarValor = digitado ? digitado.trim().toLowerCase() : Erro();
+            // Normaliza o array para comparação
+            var frutasNormalizadas = frutas.map(f => f.trim().toLowerCase());
+
+            if (frutasNormalizadas.includes(buscarValor)) {
+                Compras(buscarValor);
+            } else {
+                Erro();
+            }
+
+        }
+        function Compras(buscarValor) {
+            let escolhida = frutas.findIndex(f => f.trim().toLowerCase() === buscarValor);
+
+            if (escolhida !== -1) {
+                let frutaEscolhida = frutas[escolhida];
+                carrinho.push(frutaEscolhida) // adicionando ao Carrinho
+                frutas.splice(escolhida, 1) // retirando pelo indice do Array
+            }
+            if (frutas.length === 0) {
+                alert(`Lista de compras finalizada!`);
+                alert(`Carrinho:\n${carrinho.join(". \n")}`);
+                return;
+
+            }
+            alert(`Lista de frutas:\n ${frutas.join(". \n")}`)
+            Confirmar();
+
+        }
+        function Confirmar() {
+            let confirmar = prompt(`Se quiser parar digite "PARE".`).toUpperCase().trim()
+
+            if (confirmar === "PARE") {
+                alert(`Lista de compras finalizada : \n${carrinho.join(". \n")}`)
+                alert(`Itens restantes : \n${frutas.join(". \n")}`)
+                return;
+
+            } else {
+                Loja();
+            }
+        }
+
+        function Erro(digitado) {
+            alert(`Digite uma fruta valida`)
+            Loja();
+        }
+    </script>
+</body>
+
+</html>
