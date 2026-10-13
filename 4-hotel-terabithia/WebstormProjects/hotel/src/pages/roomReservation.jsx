@@ -145,7 +145,6 @@ function RoomReservation() {
                         {index + 1} - {status}
                     </div>
                 ))}
-                <GuestRegistration reservations={reservations} rooms={rooms} />
             </div>
             {/* Footer fora da caixa → agora fica lá embaixo */}
             <Footer />
