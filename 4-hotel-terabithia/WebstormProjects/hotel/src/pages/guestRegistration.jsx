@@ -1,8 +1,11 @@
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 import {useState} from "react";
+import { useHotel } from "../context/HotelContext";
 
-function GuestRegistration({ reservations, rooms }) {
+function GuestRegistration() {
+    const { registrarHospede } = useHotel();
+
     const [menuOption, setMenuOption] = useState(0);
     const [nameHosped, setNameHosped] = useState("");
     const [hospedes, setHospedes] = useState([]);
@@ -31,6 +34,7 @@ function GuestRegistration({ reservations, rooms }) {
         ]);
 
         alert(`Hóspede cadastrado: ${nameHosped}`);
+        registrarHospede(nameHosped);
         setNameHosped("");
     }
 
@@ -170,3 +174,90 @@ function GuestRegistration({ reservations, rooms }) {
 }
 
 export default GuestRegistration;
+
+{/*
+import Footer from "../components/Footer.jsx";
+import Header from "../components/Header.jsx";
+import {useState} from "react";
+
+function GuestRegistration({ reservations, rooms }) {
+
+    const [menuOption, setMenuOption] = useState(0);
+    const [nameHosped, setNameHosped] = useState("");
+    const [hospedes, setHospedes] = useState([]);
+
+    // Função de cadastro
+    function cadastrarHospede(e) {
+        e.preventDefault();
+
+        if (hospedes.length >= 15) {
+            alert("Capacidade máxima atingida (15 hóspedes).");
+            return;
+        }
+
+        const existe = hospedes.some(h => h.nome === nameHosped);
+        if (existe) {
+            alert("Esse hóspede já está cadastrado.");
+            return;
+        }
+
+        setHospedes([
+            ...hospedes,
+            { nome: nameHosped, criadoEm: new Date() }
+        ]);
+
+        alert(`Hóspede cadastrado: ${nameHosped}`);
+        setNameHosped("");
+    }
+
+    return (
+        <div
+            className="flex flex-col justify-center items-center mt-4 bg-[var(--background-box)] w-full max-w-[800px] mx-auto text-[var(--color-text)] gap-[20px] shadow-[var(--box-shadow)] border-[var(--border-left-color)] border-l-[5px] rounded-[var(--border-radius)] "
+        >
+            <Header />
+
+            <h1 className="font-[Caveat-Regular] text-[50px] mt-[2vh]">
+                Cadastro de Hóspedes
+            </h1>
+
+            {/* MENU */}
+{/*}
+<div className="flex flex-col justify-center items-center gap-[2vh]">
+    <button
+        onClick={() => setMenuOption(1)}
+        className="bg-[var(--border-left-color)] p-2 rounded w-[200px]"
+    >
+        Cadastrar
+    </button>
+
+    <button
+        onClick={() => setMenuOption(2)}
+        className="bg-[var(--border-left-color)] p-2 rounded w-[200px]"
+    >
+        Pesquisar
+    </button>
+
+    <button
+        onClick={() => setMenuOption(3)}
+        className="bg-[var(--border-left-color)] p-2 rounded w-[200px]"
+    >
+        Listar
+    </button>
+
+    <button
+        onClick={() => setMenuOption(4)}
+        className="bg-[var(--border-left-color)] p-2 rounded w-[200px]"
+    >
+        Sair
+    </button>
+</div>
+
+{/* OPÇÃO 1 — CADASTRAR */}
+{/*
+{menuOption === 1 && (
+    <div
+        className="flex flex-col justify-center items-center mt-4 bg-[var(--background-box)] w-full max-w-[800px] mx-auto text-[var(--color-text)] gap-[20px] shadow-[var(--box-shadow)] border-[var(--border-left-color)] border-l-[5px] rounded-[var(--border-radius)] "
+    >
+
+*/}
+
