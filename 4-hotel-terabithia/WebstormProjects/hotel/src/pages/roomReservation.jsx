@@ -58,6 +58,7 @@ function RoomReservation() {
             return;
         }
 
+
         // ocupar quarto
         const updatedRooms = [...rooms];
         updatedRooms[n - 1] = "O";

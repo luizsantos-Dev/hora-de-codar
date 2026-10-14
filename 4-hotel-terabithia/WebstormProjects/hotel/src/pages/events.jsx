@@ -3,35 +3,40 @@ import Header from "../components/Header";
 import { useState } from "react";
 
 function Events() {
-    
+
     const [value,setValue] = useState(null);
     const [hours,setHours] = useState(null);
-    const [week, setWeek] = useState("");   
+    const [week, setWeek] = useState("");
     const [company, setCompany] = useState("");
-    const [result, setResult] = useState(false);
-    
-    let adcLaranja = 0;
+    const [result, setResult] = useState(0);
+    const [horasEvent, setHorasEvent] = useState(null);
+    const [auditorio, setAuditorio] = useState("");
+    const [adcLaranja, setAdcLaranja] = useState(0);
 
-    function NumberEvents() {
-        
+
+    function NumberEvents(e) {
+        e.preventDefault();
+
         if (value <= 0){
              alert("Número inválido.")
         }else if (value > 350){
              alert(`Capacidade excedida.`)
         }else if (value <= 150){
-             alert(`Com o número de ${value}, o auditório escolhido foi o Laranja.`);
-             setResult(true)
+            setAuditorio("Laranja")
+             setResult(1)
+
         }else if (value > 150 && value <= 220){
-            adcLaranja = value - 150;
-                    alert(`Com o número de ${value}, o auditório escolhido foi o Laranja, com um adicional de ${adcLaranja}.`);
-                    setResult(true)
+            const adicional = value - 150;
+            setAdcLaranja( adicional > 0 ? adicional : 0 );
+            setResult(1)
         }else{
-            alert(`Com o número de ${value}, o auditório escolhido foi o Colorado.`)
-            setResult(true)
+            setAuditorio("Colorado");
+            setResult(1)
         }
 
         return;
 };
+
     function Agends (e) {
         e.preventDefault();
 
@@ -39,7 +44,6 @@ function Events() {
 
         const diasUteis = [
             "segunda",
-            "terca",
             "terça",
             "quarta",
             "quinta",
@@ -47,7 +51,6 @@ function Events() {
         ];
 
         const FimdeSemana = [
-            "sabado",
             "sábado",
             "domingo"
         ];
@@ -59,17 +62,71 @@ function Events() {
             }
         if(FimdeSemana.includes(weekFormatted)){
             if (hours >= 7 && hours <= 15){
-                alert(`Auditório marcado da empresa ${company}: na ${week} ás ${hours}h.`);
+                setResult(2)
             }else{
                 alert(`Horário incompatível`);
             }
         }else if (hours >= 7 && hours <= 23){
-            alert(`Auditório marcado da empresa ${company}: na ${week} ás ${hours}h.`);
+            setResult(2)
         }else{
             alert(`Horário incompatível`);
         }
+
     }
-    
+
+    function Garcon (){
+        const Base = value / 12;
+        const reforcoGarcon = horasEvent / 2;
+        const totGarcon = Base + reforcoGarcon;
+        const custoGarcon = 10.50;
+        const calculoGarcons = totGarcon * horasEvent * custoGarcon;
+
+        const cafeLitros = value * 0.2;
+        const aguaLitros = value * 0.5;
+        const salgadosUn = value * 7;
+
+        const custoCafe = cafeLitros * 0.80;
+        const custoAgua = aguaLitros * 0.40;
+        const custoSalgados = salgadosUn * 0.34;
+
+        const CalcAlimento = custoCafe + custoAgua + custoSalgados;
+
+        const TotEvent = CalcAlimento + calculoGarcons
+
+           const reposta = confirm(`
+            [Eventos]
+            Convidados: ${value}
+            Auditório selecionado: ${auditorio} (${adcLaranja} cadeiras adicionais)
+
+            Dia: ${week}
+            Hora inicial: ${hours}
+            Duração: ${horasEvent}  
+            Empresa: ${company}
+            Status: Auditório reservado.
+
+            Garçons necessários: ${totGarcon}
+            Custo com garçons: R$ ${calculoGarcons.toFixed(2)}
+
+            Buffet:
+            Café: ${cafeLitros.toFixed(1)} L
+            Água: ${aguaLitros.toFixed(1)} L
+            Salgados: ${salgadosUn.toFixed(0)} un
+            Custo buffet: R$ ${CalcAlimento.toFixed(2)}
+
+            Total do evento: R$ ${TotEvent.toFixed(2)}
+            Confirmar reserva? (S/N): 
+            `)
+        if(!reposta){
+            alert("Confirmação cancelada.");
+
+        }else{
+            alert("Reserva efetuada com sucesso.")
+
+        }
+        return;
+
+    }
+
 
 
 
@@ -82,7 +139,7 @@ function Events() {
                 <Header />
 
                 <h1 className="font-[Caveat-Regular] text-[50px] mt-[2vh]">Eventos</h1>
-
+                {result === 0 &&(
                 <form className="bg-blue-400 flex flex-col p-[20px] mb-[5px]  rounded-bl-[4px] rounded-tl-[4px] border-[var(--border-left-color)] border-l-[3px] shadow-[var(--box-shadow)] mb-[20px]" onSubmit={NumberEvents}>
                     <label>Quantidade de convidados:</label>
                     <input className="bg-gray-500 border-[0.5px] border-slate-200 outline-none mt-1 rounded-[2px]" placeholder="1-350"  type="number" value={value} onChange={(e)=>setValue(Number(e.target.value))} required /><br/>
@@ -94,8 +151,8 @@ function Events() {
                         Verificar auditório
                     </button>
                 </form>
-
-                {result === true && (
+                )}
+                {result === 1 && (
                 <form className="bg-blue-400 flex flex-col p-[20px] mb-[5px]  rounded-bl-[4px] rounded-tl-[4px] border-[var(--border-left-color)] border-l-[3px] shadow-[var(--box-shadow)] mb-[20px]" onSubmit={Agends}>
                     <label>Horário:</label>
                     <input className="bg-gray-500 border-[0.5px] border-slate-200 outline-none mt-1 rounded-[2px]" placeholder="7-23"  type="number" value={hours} onChange={(e)=>setHours(parseInt(e.target.value))} required /><br/>
@@ -114,7 +171,20 @@ function Events() {
                     </button> 
                 </form>
                 )}
-                rou
+                {result === 2 && (
+                <form className="bg-blue-400 flex flex-col p-[20px] mb-[5px]  rounded-bl-[4px] rounded-tl-[4px] border-[var(--border-left-color)] border-l-[3px] shadow-[var(--box-shadow)] mb-[20px]" onSubmit={Garcon}>
+
+                    <label>Total de horas do evento:</label>
+                    <input className="bg-gray-500 border-[0.5px] border-slate-200 outline-none mt-1 rounded-[2px]" placeholder="Nome empresa"  type="number" value={horasEvent} onChange={(e)=>setHorasEvent(e.target.value)} required /><br/>
+
+                    <button
+                        type="submit"
+                        className=" bg-[var(--border-left-color)] p-2 rounded-bl-[4px] nded-tr-[4px] mx-auto "
+                    >
+                        Avaliar
+                    </button>
+                </form>
+                )}
                 <Footer />
             </div>
         </>
